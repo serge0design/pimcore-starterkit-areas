@@ -1,0 +1,40 @@
+{% import '@StarterkitAreas/Includes/macro-card-default.html.twig' as macroCardDefault %}
+{% import '@StarterkitAreas/Includes/macro-card-object.html.twig' as macroCardObject %}
+
+{% set selectCardTypeKey = pimcore_select("selectCardType").data|default('default') %}
+{% set cardTypeSettings = card.cardTypeStore[selectCardTypeKey]|default([]) %}
+
+{% set cssClass =  (cardTypeSettings.cssClass is defined ? cardTypeSettings.cssClass : '') %}
+{% set customTemplate =  (cardTypeSettings.template is defined ? cardTypeSettings.template : '') %}
+
+{% set item = pimcore_relation("relationCardObject").getElement|default() %}
+{% set itemId = pimcore_input("inputId").data|default() %}
+{% set checkboxReverseRowHeader = pimcore_checkbox("checkboxReverseRowHeader").isChecked %}
+
+{% if selectCardTypeKey == 'default' %}
+
+    {% if macroCardDefault.card_options is defined %}
+        {{ macroCardDefault.card_options(itemId, cssClass, checkboxReverseRowHeader) }}
+    {% endif %}
+
+{% elseif selectCardTypeKey == 'object' %}
+
+    {% if macroCardObject.card_options is defined %}
+        {{ macroCardObject.card_options(item, itemId, cssClass, checkboxReverseRowHeader) }}
+    {% endif %}
+
+{% elseif selectCardTypeKey == 'customTemplate' %}
+
+    {% if cardTypeSettings.template is defined %}
+        {% include '@App/includes/themes/card/'~customTemplate~'.html.twig' %}
+    {% endif %}
+
+{% else %}
+
+    <div class="alert alert-warning">
+        <p>{{ "starterkitareas.area.card.define.message"|trans({}, 'admin') }}</p>
+    </div>
+
+{% endif %}
+
+

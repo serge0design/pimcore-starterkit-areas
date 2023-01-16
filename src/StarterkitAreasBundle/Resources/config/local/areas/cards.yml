@@ -1,0 +1,38 @@
+services:
+    StarterkitAreasBundle\Document\Areabrick\Cards:
+        arguments: [ '@Pimcore\Translation\Translator', '@parameter_bag' ]
+        autowire: true
+        tags:
+            - { name: pimcore.area.brick, id: cards }
+
+parameters:
+    cards:
+        cardsTypeStore:
+            default:
+                name: 'Srtandard (Editierbare Felder)'
+                cssClassRow: ''
+                cols: 3
+            customTemplate:
+                name: 'Card als Template'
+                cssClassRow: 'row-cols-lg-4'
+                cols: 3
+                template: 'secondary'
+            object:
+                name: 'Card als Objekt'
+                cssClassRow: 'row-cols-lg-2'
+
+        cssClassRowStore:
+            default:
+                name: '1 Reihe'
+                cssClassRow: ''
+                cols: 1
+            col-50:
+                name: '2er Reihe'
+                cssClassRow: 'row-cols-1 row-cols-md-2'
+                cols: 3
+            col-33:
+                name: '3er Reihe'
+                cssClassRow: 'row-cols-1 row-cols-md-2 row-cols-lg-3'
+            col-25:
+                name: '4er Reihe'
+                cssClassRow: 'row-cols-1 row-cols-md-2 row-cols-lg-4'

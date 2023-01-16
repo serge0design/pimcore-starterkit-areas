@@ -1,0 +1,13 @@
+#parameters:
+#    areablocks:
+#        root:
+#            Layout:
+#                - 'section'
+#            Slider:
+#                - 'hero-bs-slider'
+#        default:
+#            Layout:
+#                - 'section'
+#            Content:
+#                - 'heading'
+#                - 'wysiwyg'

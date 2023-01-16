@@ -1,0 +1,55 @@
+{% macro card_options(item, itemId, cssClass, checkboxReverseRowHeader) %}
+
+    {% if item is pimcore_data_object_class("Card") %}
+        <div id="{{ (itemId !='' ? itemId : stringToLowerFormatter(item.getKey)) ~}}"
+             class="col col-card {{ (cssClass !='' ? cssClass : '' ) }}">
+
+            <div class="card h-100">
+                {% if editmode %}<span class="ms-auto">{{ getLinkToObject(item.getId) }}</span>{% endif %}
+
+                {% if item.Title != '' or item.Image is pimcore_asset_image %}
+                    <div class="card-header-wrapper{{~ (checkboxReverseRowHeader ? '--reverse' : '') ~}}">
+
+                        {% if item.Image is pimcore_asset_image %}
+                            {{ item.Image.thumbnail("cardImage").html({
+                                'imgAttributes': {
+                                    'class': 'img-fluid'
+                                },
+                            })|raw }}
+                        {% endif %}
+
+                        {% if item.Title != '' %}
+                            <div class="card-header">
+                                <h3>{{ item.Title }}</h3>
+                            </div>
+                        {% endif %}
+
+                    </div>
+                {% endif %}
+
+                <div class="card-body">
+                    {% if item.Content != '' %}
+                        <div class="description">
+                            {{ item.Content|raw }}
+                        </div>
+                    {% endif %}
+
+                    {% if item.Addon != '' %}
+                        <div class="addon">
+                            {{ item.Addon|raw }}
+                        </div>
+                    {% endif %}
+                </div>
+
+                {% if item.CallToAction != '' %}
+                    <div class="card-footer">
+                        <a href="{{ item.CallToAction.href }}" class="btn btn-anchor-link">
+                            {{ item.CallToAction.text }}
+                        </a>
+                    </div>
+                {% endif %}
+
+            </div>
+        </div>
+    {% endif %}
+{% endmacro %}

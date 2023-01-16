@@ -1,0 +1,58 @@
+imports:
+    - { resource: 'areas/' }
+
+parameters:
+    areablocks:
+        root:
+            Layout:
+                - 'section'
+                - 'one-pager'
+                - 'tiles'
+            Slider:
+                - 'hero-slick-slider'
+                - 'hero-bs-slider'
+        content:
+            Layout_Parts:
+                - 'columns'
+                - 'cards'
+                - 'cards-date'
+                - 'card'
+                - 'divider'
+                - 'formbuilder_form'
+                - 'gallery'
+                - 'iframe'
+                - 'spacer'
+                - 'snippet'
+                - 'tiles'
+            Content:
+                - 'heading'
+                - 'wysiwyg'
+                - 'image'
+                - 'video'
+                - 'blockquote'
+                - 'call-to-action'
+        default:
+            Layout:
+                - 'section'
+                - 'one-pager'
+            Slider:
+                - 'hero-slick-slider'
+                - 'hero-bs-slider'
+            Layout_Parts:
+                - 'columns'
+                - 'cards'
+                - 'cards-date'
+                - 'card'
+                - 'divider'
+                - 'formbuilder_form'
+                - 'gallery'
+                - 'iframe'
+                - 'spacer'
+                - 'snippet'
+                - 'tiles'
+            Content:
+                - 'heading'
+                - 'wysiwyg'
+                - 'image'
+                - 'video'
+                - 'blockquote'

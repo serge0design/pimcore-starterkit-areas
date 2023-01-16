@@ -1,0 +1,22 @@
+services:
+    StarterkitAreasBundle\Document\Areabrick\CallToAction:
+        arguments: [ '@Pimcore\Translation\Translator', '@parameter_bag' ]
+        autowire: true
+        tags:
+            - { name: pimcore.area.brick, id: call-to-action }
+
+parameters:
+    calltoaction:
+        btnClassStore:
+            default:
+                name: 'Primary'
+                cssClass: 'primary'
+            secondary:
+                name: 'Secondary'
+                cssClass: 'primary'
+            customPrimary:
+                name: 'Custom Primary'
+                cssClass: 'custom-primary'
+            customSecondary:
+                name: 'CustomSecondary'
+                cssClass: 'custom-secondary'

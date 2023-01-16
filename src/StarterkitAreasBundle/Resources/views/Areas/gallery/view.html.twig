@@ -1,0 +1,80 @@
+{% import '@StarterkitAreas/Includes/macro-img-item.html.twig' as macroImg %}
+
+{% set rowClassTypeKey = pimcore_select("selectRowClassType").data|default('default') %}
+{% set rowClassSettings = gallery.rowClassTypeStore[rowClassTypeKey]|default([]) %}
+{% set selectCssClassRow = rowClassSettings.cssClassRow|default('') %}
+
+{% set imageRatioKey = pimcore_select("selectImageRatio").data|default('4x5cover') %}
+{% set ratioSettings = gallery.imageRatioStore[imageRatioKey]|default([]) %}
+{% set selectImageRatio = ratioSettings.ratio|default('4x5cover') %}
+
+{% set galleryFolder = pimcore_relation("relationGalleryFolder").element.children|default([]) %}
+{% set relationsGalleryItems = pimcore_relations("relationsGalleryItems").elements|default([]) %}
+
+{% set checkboxEnableLightbox = pimcore_checkbox("checkboxEnableLightbox").isChecked %}
+{% set checkboxDisplayCaption = pimcore_checkbox("checkboxDisplayCaption").isChecked %}
+
+{% if checkboxEnableLightbox %}
+<div class="mfp-gallery-wrapper">
+    {% endif %}
+
+    {% if macroImg.item_image is defined and galleryFolder is iterable %}
+        <div class="row {{ (selectCssClassRow !='' ? selectCssClassRow : '') }}">
+            {% for item in galleryFolder %}
+
+                {% set itemIndex = loop.index %}
+                <div class="col">
+                    {{ macroImg.item_image(
+                        item,
+                        itemIndex,
+                        selectImageRatio,
+                        checkboxDisplayCaption,
+                        checkboxEnableLightbox ) }}
+                </div>
+
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    {% if macroImg.item_image is defined and relationsGalleryItems is iterable %}
+        <div class="row {{ (selectCssClassRow !='' ? selectCssClassRow : '') }}">
+            {% for galleryItems in relationsGalleryItems %}
+
+                {% if galleryItems is pimcore_asset_folder %}
+                    {% for item in galleryItems.children %}
+                        {% set itemIndex = loop.index %}
+                        {% if macroImg.item_image is defined %}
+                            <div class="col col-item">
+                                {{ macroImg.item_image(
+                                    item,
+                                    itemIndex,
+                                    selectImageRatio,
+                                    checkboxDisplayCaption,
+                                    checkboxEnableLightbox) }}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+
+                {% if galleryItems is pimcore_asset_image %}
+                    {% set item = galleryItems %}
+                    {% set itemIndex = loop.index %}
+                    {% if macroImg.item_image is defined %}
+                        <div class="col col-item">
+                            {{ macroImg.item_image(
+                                item,
+                                itemIndex,
+                                selectImageRatio,
+                                checkboxDisplayCaption,
+                                checkboxEnableLightbox) }}
+                        </div>
+                    {% endif %}
+                {% endif %}
+
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    {% if checkboxEnableLightbox %}
+</div>
+{% endif %}

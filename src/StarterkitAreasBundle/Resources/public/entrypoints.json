@@ -1,0 +1,42 @@
+{
+  "entrypoints": {
+    "js/ckeditor/ckeditor-main": {
+      "js": [
+        "/bundles/SergeDesign/StarterkitAreasBundle/Resources/public/runtime.js",
+        "/bundles/SergeDesign/StarterkitAreasBundle/Resources/public/js/ckeditor/ckeditor-main.js"
+      ]
+    },
+    "js/ckeditor/ckeditor-card": {
+      "js": [
+        "/bundles/SergeDesign/StarterkitAreasBundle/Resources/public/runtime.js",
+        "/bundles/SergeDesign/StarterkitAreasBundle/Resources/public/js/ckeditor/ckeditor-card.js"
+      ]
+    },
+    "js/ckeditor/ckeditor-minimal": {
+      "js": [
+        "/bundles/SergeDesign/StarterkitAreasBundle/Resources/public/runtime.js",
+        "/bundles/SergeDesign/StarterkitAreasBundle/Resources/public/js/ckeditor/ckeditor-minimal.js"
+      ]
+    },
+    "js/ckeditor/styles": {
+      "js": [
+        "/bundles/SergeDesign/StarterkitAreasBundle/Resources/public/runtime.js",
+        "/bundles/SergeDesign/StarterkitAreasBundle/Resources/public/js/ckeditor/styles.js"
+      ]
+    },
+    "js/ckeditor/templates": {
+      "js": [
+        "/bundles/SergeDesign/StarterkitAreasBundle/Resources/public/runtime.js",
+        "/bundles/SergeDesign/StarterkitAreasBundle/Resources/public/js/ckeditor/templates.js"
+      ]
+    },
+    "css/editmode": {
+      "js": [
+        "/bundles/SergeDesign/StarterkitAreasBundle/Resources/public/runtime.js"
+      ],
+      "css": [
+        "/bundles/SergeDesign/StarterkitAreasBundle/Resources/public/css/editmode.css"
+      ]
+    }
+  }
+}

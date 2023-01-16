@@ -1,0 +1,28 @@
+{% macro item_image(item, itemIndex, selectImageRatio, checkboxDisplayCaption, checkboxEnableLightbox) %}
+
+    {% import '@StarterkitAreas/Includes/macro-wysiwyg.html.twig' as macroWysiwyg %}
+    {% set placeholderContent =  "starterkitareas.area.image.caption.placeholder"|trans({}, 'admin') %}
+
+    <figure>
+        {% if not editmode and checkboxEnableLightbox %}
+        <a class="mfp-item" href="{{ item.thumbnail("ratio-16x9-contain") }}">
+            {% endif %}
+
+            {{ item.thumbnail("ratio-"~selectImageRatio).html({
+                'imgAttributes': {
+                    'class': 'img-fluid'
+                },
+            })|raw }}
+
+            {% if (not editmode and checkboxEnableLightbox) %}</a>{% endif %}
+
+        {% if checkboxDisplayCaption %}
+            <figcaption>
+                {% if macroWysiwyg.wysiwyg_options is defined %}
+                    {{ macroWysiwyg.wysiwyg_options(selectWysiwygType|default('minimal'), itemIndex|default(''), placeholderContent) }}
+                {% endif %}
+            </figcaption>
+        {% endif %}
+
+    </figure>
+{% endmacro %}

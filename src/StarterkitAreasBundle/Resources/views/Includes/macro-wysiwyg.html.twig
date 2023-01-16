@@ -1,0 +1,8 @@
+{% macro wysiwyg_options(selectWysiwygType,itemIndex, placeholderContent) %}
+    {{ pimcore_wysiwyg("wysiwyg"~itemIndex|default(''), {
+        height : 75,
+        required : false,
+        placeholder: placeholderContent,
+        customConfig :  '/bundles/starterkitareas/js/ckeditor/ckeditor-'~selectWysiwygType|default('main')~'.js'
+    }) }}
+{% endmacro %}

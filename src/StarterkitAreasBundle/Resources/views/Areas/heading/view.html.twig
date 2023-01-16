@@ -1,0 +1,23 @@
+{% set selectHeadingTag = pimcore_select("selectHeadingTag").getData()|default('h2') %}
+
+{% set headingClassKey = pimcore_select("selectHeadingClass").getData()|default('') %}
+{% set headingClassSettings = heading.headingClassStore[headingClassKey]|default([]) %}
+{% set headingClass = headingClassSettings.cssClass|default('') %}
+
+{% set textareaHeadline = pimcore_textarea("textareaHeadline", {
+    placeholder: "starterkitareas.area.heading.placeholder"|trans({}, 'admin'),
+    nl2br : true,
+    required : true
+}) %}
+
+{% set checkboxEnableAnchor = pimcore_checkbox('checkboxEnableAnchor').isChecked %}
+{% set anchorText = textareaHeadline.data|lower|replace({' ':'-','\n':'-'}) %}
+{% set setAnchor = (checkboxEnableAnchor and not textareaHeadline.isEmpty ? 'id='~anchorText : '' ) %}
+
+{% if editmode or not textareaHeadline.isEmpty %}
+    <{{ selectHeadingTag }} {{ setAnchor }} {{ (headingClass !='' ? 'class='~headingClass : '') }}>
+        {{ textareaHeadline|raw }}
+    </{{ selectHeadingTag }}>
+{% endif %}
+
+

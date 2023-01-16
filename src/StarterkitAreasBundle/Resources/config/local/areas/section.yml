@@ -1,0 +1,45 @@
+services:
+    StarterkitAreasBundle\Document\Areabrick\Section:
+        autowire: true
+        arguments: [ '@Pimcore\Translation\Translator', '@parameter_bag' ]
+        tags:
+            - { name: pimcore.area.brick, id: section }
+
+parameters:
+    section:
+        sectionBgTypeStore:
+            default:
+                name: 'Standard'
+                cssClass: ''
+            bgcolor:
+                name: 'Hintergrundfarbe'
+                cssClass: 'bgcolor'
+            bgimage:
+                name: 'Hintergrundbild'
+                cssClass: 'bgimage'
+
+        sectionAttrTypeStore:
+            default:
+                name: 'Standard'
+                cssClass: ''
+            primary:
+                name: 'Blau'
+                cssClass: 'bg-primary'
+            secondary:
+                name: 'Hellgrau'
+                cssClass: 'bg-secondary'
+            primaryCustom:
+                name: 'rot'
+                cssClass: 'bg-custom-primary'
+            secondaryCustom:
+                name: 'Grün'
+                cssClass: 'bg-custom-secondary'
+
+###########################
+## Area Section Options
+###########################
+#
+#            example:
+#                name: 'Example'
+#                cssClass: 'bg-primary'
+#                attributes: 'data-jarallax data-speed=0.2'

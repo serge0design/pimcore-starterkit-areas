@@ -1,0 +1,10 @@
+#services:
+#    App\Document\Areabrick\CardsDate:
+#        arguments: [ '@Pimcore\Translation\Translator', '@parameter_bag' ]
+#        autowire: true
+#        tags:
+#            - { name: pimcore.area.brick, id: cards-date }
+#
+#parameters:
+#    cards-date:
+#        cssClassRow: 'row-cols-lg-3'

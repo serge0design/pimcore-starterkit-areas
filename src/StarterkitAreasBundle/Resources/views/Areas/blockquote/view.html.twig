@@ -1,0 +1,32 @@
+{% set inputCite = pimcore_input("inputCite").data|default('') %}
+{% set checkboxDisplayAuthor = pimcore_checkbox("checkboxDisplayAuthor").isChecked %}
+{% set inputAuthor = pimcore_input("inputAuthor", {
+    placeholder: "Author",
+}) %}
+{% set selectWysiwygType = 'minimal' %}
+{% set placeholderContent =  "starterkitareas.area.blockquote.placeholder"|trans({}, 'admin') %}
+{% set itemIndex = '' %}
+
+{% import '@StarterkitAreas/Includes/macro-wysiwyg.html.twig' as macroWysiwyg %}
+
+<blockquote class="blockquote" {{ (inputCite !='' ? 'cite='~inputCite : '') }}>
+    <div class="inner">
+        {% if macroWysiwyg.wysiwyg_options is defined %}
+            {{ macroWysiwyg.wysiwyg_options(selectWysiwygType, itemIndex, placeholderContent) }}
+        {% endif %}
+
+        {% if editmode and checkboxDisplayAuthor %}
+            <div class="author">
+                {{ inputAuthor|raw }}
+            </div>
+        {% elseif checkboxDisplayAuthor and inputAuthor != '' %}
+            <div class="author">
+                {{ inputAuthor.data }}
+            </div>
+        {% endif %}
+    </div>
+</blockquote>
+
+
+
+

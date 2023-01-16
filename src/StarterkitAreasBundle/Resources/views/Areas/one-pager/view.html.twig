@@ -1,0 +1,32 @@
+{% set relationAnchorParentDoc = pimcore_relation("relationAnchorParentDoc").getElement()|default("") %}
+{% set checkboxDisplayAnchorIdInEditmode = pimcore_checkbox("checkboxDisplayAnchorIdInEditmode").isChecked %}
+
+{% if relationAnchorParentDoc is pimcore_document %}
+    {% for item in relationAnchorParentDoc.getChildren %}
+        <div id="{{~ item.getKey ~}}">
+
+            {% if editmode and checkboxDisplayAnchorIdInEditmode %}
+                <div class="container">
+                    <div class="alert alert-warning col-md-4 p-3">
+                        <p class="small mb-0">
+                        <span>{{ "Anchor Id:"|trans({}, 'admin') }}</span>
+                            <code>{{ item.getKey }}</code></p>
+                    </div>
+                </div>
+            {% endif %}
+
+            {% include '@StarterkitAreas/Areas/areablock/mainAreablock.html.twig' with {
+                name: 'onepager'~item.key,
+                areablockName : 'default',
+                editmodeCssClass : 'areablock-onepager'
+            } %}
+
+        </div>
+    {% endfor %}
+{% else %}
+    <div class="container">
+        <div class="col alert alert-warning m-5">
+            {{ "Please drop document into Edit->Relation Field"|trans({}, 'admin') }}
+        </div>
+    </div>
+{% endif %}

@@ -1,0 +1,95 @@
+{% set relationObjectSliderFolder = pimcore_relation("relationObjectSliderFolder").getElement() |default("") %}
+{% set checkboxHideArrows = pimcore_checkbox("checkboxHideArrows").isChecked %}
+{% set checkboxHideDots = pimcore_checkbox("checkboxHideDots").isChecked %}
+{% set carouselId = brick.id~'-'~index %}
+
+{% if relationObjectSliderFolder is pimcore_data_object_folder %}
+
+    {% set sliderStore = [] %}
+    {% for items in relationObjectSliderFolder.children %}
+        {% if items is pimcore_data_object_folder %}
+            {% for items in items.children %}
+                {% if items is pimcore_data_object_class("HeroSlide") %}
+                    {% set sliderStore = sliderStore|merge([items]) %}
+                {% endif %}
+            {% endfor %}
+        {% elseif items is pimcore_data_object_class("HeroSlide") %}
+            {% set sliderStore = sliderStore|merge([items]) %}
+        {% endif %}
+    {% endfor %}
+
+    <div id="{{ carouselId }}" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            {% for item in sliderStore %}
+                {% if item is pimcore_data_object_class("HeroSlide") %}
+                    {% if item.getImage is pimcore_asset_image %}
+                        <div class="carousel-item {{ (loop.index == 1 ? 'active' : '') }}">
+                            {{ item.getImage.getThumbnail("heroImage").html({
+                                'imgAttributes': {
+                                    'class': 'img-fluid',
+                                    'loading': 'eager'
+                                }
+                            })|raw }}
+                        </div>
+
+                        <div class="content-wrapper carousel-caption">
+                            <div class="content-wrapper">
+                                <h1 class="title">{{ item.getTitle }}</h1>
+                                {{ item.getContent|nl2br }}
+                                {% if item.getCallToActionLink != null %}
+                                    <a class="btn-call-to-action btn-anchor"
+                                       href="#{{~ stringToLowerFormatter(item.getCallToActionLink.key) ~}}"
+                                       target="_parent">
+                                        {% if item.getLinktext != '' %}
+                                            {{ item.getLinktext }}
+                                        {% else %}
+                                            {{ "Zur Reservation"|trans }}
+                                        {% endif %}
+                                    </a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        {% if not checkboxHideArrows or not checkboxHideDots %}
+            <div class="slider-nav-wrapper">
+                <div class="inner">
+                    {% if not checkboxHideArrows %}
+                        <button title="{{ "Previous"|trans }}" class="carousel-nav carousel-control-prev custom-prev"
+                                type="button"
+                                data-bs-target="#{{ carouselId }}" data-bs-slide="prev">
+                            <i class="bi bi-chevron-compact-left"></i>
+                        </button>
+                    {% endif %}
+                    {% if not checkboxHideDots %}
+                        <div class="carousel-indicators custom-dots">
+                            {% for item in sliderStore %}
+                                {% if item is pimcore_data_object_class("HeroSlide") %}
+                                    <button type="button"
+                                            data-bs-target="#{{ carouselId }}"
+                                            data-bs-slide-to="{{ loop.index -1 }}"
+                                        {{ (loop.index == 1 ? 'class=active' : '') }}
+                                            aria-current="true"
+                                            aria-label="Slide 1">
+                                    </button>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                    {% if not checkboxHideArrows %}
+                        <button title="{{ "Previous"|trans }}" class="carousel-nav carousel-control-next custom-next"
+                                type="button"
+                                data-bs-target="#{{ carouselId }}" data-bs-slide="next">
+                            <i class="bi bi-chevron-compact-right"></i>
+                        </button>
+                    {% endif %}
+                </div>
+            </div>
+        {% endif %}
+
+    </div>
+
+{% endif %}

@@ -1,0 +1,4 @@
+{%  set selectSpacerClass = pimcore_select("selectSpacerClass").data|default('') %}
+<div class="spacer{{~selectSpacerClass~}}">
+    {%  if editmode %}<span>{{ "Spacer"~selectSpacerClass|replace({'-' : ' '}) }}</span>{% endif %}
+</div>

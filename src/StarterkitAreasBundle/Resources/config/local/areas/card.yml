@@ -1,0 +1,21 @@
+services:
+    StarterkitAreasBundle\Document\Areabrick\Card:
+        arguments: [ '@Pimcore\Translation\Translator', '@parameter_bag' ]
+        autowire: true
+        tags:
+            - { name: pimcore.area.brick, id: card }
+
+parameters:
+    card:
+        cardTypeStore:
+            default:
+                name: 'Srtandard (Editierbare Felder)'
+                cssClass: 'ergz'
+
+            object:
+                name: 'Card als Objekt'
+                cssClass: 'primary'
+
+            customTemplate:
+                name: 'Card als Template'
+                template: 'secondary'

@@ -1,0 +1,45 @@
+services:
+    StarterkitAreasBundle\Document\Areabrick\Gallery:
+        arguments: [ '@Pimcore\Translation\Translator', '@parameter_bag' ]
+        autowire: true
+        tags:
+            - { name: pimcore.area.brick, id: gallery }
+
+parameters:
+    gallery:
+        rowClassTypeStore:
+            default:
+                name: '1 Spalte'
+                cssClassRow: ''
+            col-50_50:
+                name: '2 Spalten (1:1)'
+                cssClassRow: 'row-cols-1 row-cols-sm-2'
+            col-33:
+                name: '3 Spalten (1:1:1)'
+                cssClassRow: 'row-cols-1 row-cols-sm-2 row-cols-lg-3'
+            col-25:
+                name: '4 Spalten (1:1:1:1)'
+                cssClassRow: 'row-cols-1 row-cols-sm-2 row-cols-lg-4'
+            col-20:
+                name: '5 Spalten (1:1:1:1_1)'
+                cssClassRow: 'row-cols-1 row-cols-sm-2 row-cols-lg-5'
+
+        imageRatioStore:
+            3x2cover:
+                name: '3x2 Cover'
+                ratio: '3x2-cover'
+            4x3cover:
+                name: '4x3 Cover'
+                ratio: '4x3-cover'
+            4x5cover:
+                name: '4x5 Cover'
+                ratio: '4x5-cover'
+            5x4cover:
+                name: '5x4 Cover'
+                ratio: '5x4-cover'
+            16x9cover:
+                name: '16x9 Cover'
+                ratio: '16x9-cover'
+            21x9cover:
+                name: '21x9 Cover'
+                ratio: '21x9-cover'

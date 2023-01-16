@@ -1,0 +1,41 @@
+{
+    "name": "serge0design/pimcore-starterkit-areas",
+    "license": "GPL-3.0-or-later",
+    "type": "pimcore-bundle",
+    "keywords": [
+        "pimcore",
+        "starterkit"
+    ],
+    "description": "Pimcore StarterkitAreasBundle - A collection of some usable Areas.",
+    "homepage": "https://github.com/serge0design/pimcore-starterkit-areas.git",
+    "authors": [
+        {
+            "name": "serge.design - Serge",
+            "email": "github@serge.design",
+            "homepage": "https://serge.design",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "StarterkitAreasBundle\\": "src/StarterkitAreasBundle"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "": "src/"
+        }
+    },
+    "extra": {
+        "pimcore": {
+            "bundles": [
+                "StarterkitAreasBundle\\StarterkitAreasBundle"
+            ]
+        }
+    },
+    "require": {
+        "pimcore/pimcore": "10.*",
+        "serge0design/pimcore-custom-editables": "^1.0"
+    },
+    "require-dev": {}
+}

@@ -1,0 +1,37 @@
+{% set selectSectionBgType = pimcore_select("selectSectionBgType").data|default('default') %}
+{% set selectSectionAttrType = pimcore_select("selectSectionAttrType").data|default('default') %}
+{% set sectionAttr = section.sectionAttrTypeStore[selectSectionAttrType]|default([]) %}
+
+{% set sectionCss =  sectionAttr.cssClass|default('') %}
+{% set attributes =  sectionAttr.attributes|default('') %}
+
+{% set colorPickerSectionBgColor = pimcore_color_picker("colorPickerSectionBgColor").data %}
+{% set imageSectionBgImage = pimcore_image("imageSectionBgImage").thumbnail("ratio-16x9-cover") %}
+
+{% set checkboxContainerType = ( pimcore_checkbox("checkboxContainerType").isChecked ? '-fluid' : '') %}
+{% set inputAnchorName = pimcore_input("inputAnchorName").data|default('') %}
+
+{% if selectSectionBgType == 'bgcolor' and not colorPickerSectionBgColor == null %}
+    {% set sectionStyle = 'style=background-color:#'~colorPickerSectionBgColor~';' %}
+{% elseif selectSectionBgType == 'bgimage' and not imageSectionBgImage == '' %}
+    {% set sectionStyle = 'style=background-image:url('~imageSectionBgImage~');' %}
+{% else %}
+    {% set sectionStyle = '' %}
+{% endif %}
+
+<section
+    {{ inputAnchorName !='' ? 'id='~inputAnchorName : '' }}
+    class="{{ selectSectionBgType }} {{ (sectionCss != '' ? ' '~sectionCss : '') }}"
+    {{ (sectionStyle != '' ? sectionStyle : '') }}
+    {{ (attributes != '' ? attributes : '' ) }}>
+
+    <div class="container{{ checkboxContainerType }}">
+        <div class="container-inner">
+            {% include '@StarterkitAreas/Areas/areablock/mainAreablock.html.twig' with {
+                'name': 'main-areablock',
+                'type' : 'content'
+            } %}
+        </div>
+    </div>
+
+</section>

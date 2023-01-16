@@ -1,0 +1,13 @@
+services:
+
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: true
+
+  StarterkitAreasBundle\Tools\Install:
+    arguments:
+      $bundle: "@=service('kernel').getBundle('StarterkitAreasBundle')"
+    calls:
+      - [ setTokenStorageUserResolver, [ '@Pimcore\Bundle\AdminBundle\Security\User\TokenStorageUserResolver' ] ]
+#      - [ setSerializer, [ '@serializer' ] ]

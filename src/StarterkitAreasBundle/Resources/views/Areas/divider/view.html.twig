@@ -1,0 +1,14 @@
+{% set selectDividerClass = pimcore_select("selectDividerClass").data|default('default') %}
+{% set selectWidthClass = pimcore_select("selectWidthClass").data|default('w100') %}
+{% set selectSpacersizeClass = pimcore_select("selectSpacersizeClass").data|default('x1') %}
+{% set imageDividerImg = pimcore_image("imageDividerImg").thumbnail("dividerBgImage")|default('') %}
+{% set checkboxDividerImgRepeat = pimcore_checkbox("checkboxDividerImgRepeat").isChecked %}
+
+{% if imageDividerImg !="" %}
+    <div style="background-image: url('{{ imageDividerImg }}')"
+         class="divider
+         spacer{{~ '--'~selectSpacersizeClass~' hasBgImg '~(checkboxDividerImgRepeat ? 'img-repeat' : '')~ ' '~selectWidthClass }}">
+    </div>
+{% else %}
+    <hr class="divider spacer{{~ '--'~selectSpacersizeClass~' border-'~selectDividerClass~' '~selectWidthClass }}"/>
+{% endif %}

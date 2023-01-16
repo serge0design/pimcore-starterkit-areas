@@ -1,0 +1,53 @@
+{% import '@StarterkitAreas/Includes/macro-wysiwyg.html.twig' as macroWysiwyg %}
+
+{% set block = pimcore_block("gridblock", {"manual": true}).start() %}
+        {% for b in block.iterator %}
+            {% do block.blockConstruct() %}
+
+            {% set imageIsContain = pimcore_checkbox("imageIsContain",{
+                reload: true,
+                label: "starterkitareas.area.tiles.checkboxImageIsContain"
+            }) %}
+            {% set imageTile = pimcore_image("imageTile",{
+                thumbnail: "cardImage",
+                reload: true,
+                required: true
+            }) %}
+
+            {% do block.blockStart(false) %}
+            {% do block.blockControls() %}
+            <div class="row row-cols-1 row-cols-md-2 g-0">
+                <div class="col col-content">
+                    <div class="item-body">
+                        {% if macroWysiwyg.wysiwyg_options is defined %}
+                            {{ macroWysiwyg.wysiwyg_options('card',  loop.index , '') }}
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col col-image {{ (imageIsContain.isChecked  ? 'contain-image' : '') }}">
+                    {% if editmode %}
+                        {{ imageIsContain|raw }}
+                        {{ imageTile|raw }}
+                    {% else %}
+
+                        {% set tileThumbnail = "cardImage" %}
+                        {% if imageIsContain.isChecked %}
+                            {% set tileThumbnail = "cardImageContain" %}
+                        {% endif %}
+
+                        {% if imageTile.Image is pimcore_asset_image %}
+                            {{ imageTile.getThumbnail(tileThumbnail).html({
+                                'imgAttributes': {
+                                    'class': 'img-fluid',
+                                }
+                            })|raw }}
+                        {% endif %}
+                    {% endif %}
+
+                </div>
+            </div>
+            {% do block.blockEnd() %}
+            {% do block.blockDestruct() %}
+        {% endfor %}
+{% do block.end() %}
+

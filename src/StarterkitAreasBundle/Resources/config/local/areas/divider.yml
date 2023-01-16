@@ -1,0 +1,56 @@
+services:
+    StarterkitAreasBundle\Document\Areabrick\Divider:
+        arguments: [ '@Pimcore\Translation\Translator', '@parameter_bag' ]
+        autowire: true
+        tags:
+            - { name: pimcore.area.brick, id: divider }
+
+parameters:
+    divider:
+        dividerClassStore:
+            default:
+                name: 'Default (Srtandard)'
+            solid:
+                name: 'Solid'
+            dashed:
+                name: 'Dashed'
+            dotted:
+                name: 'Dotted'
+            double:
+                name: 'Double'
+            groove:
+                name: 'Groove'
+            divider-bg-img:
+                name: 'Hintergrundbild'
+        widthClassStore:
+            w-100:
+                name: 'Weite 100%'
+            w-80:
+                name: 'Weite 80%'
+            w-75:
+                name: 'Weite 75%'
+            w-66:
+                name: 'Weite 66%'
+            w-50:
+                name: 'Weite 50%'
+            w-33:
+                name: 'Weite 33%'
+            w-25:
+                name: 'Weite 25%'
+        spacersizeClassStore:
+            x1:
+                name: 'x1'
+            x25:
+                name: 'x2.5'
+            x50:
+                name: 'x5'
+            x75:
+                name: 'x7.5'
+            x100:
+                name: 'x10'
+            x125:
+                name: 'x12.5'
+            x150:
+                name: 'x15'
+            x175:
+                name: 'x17.5'

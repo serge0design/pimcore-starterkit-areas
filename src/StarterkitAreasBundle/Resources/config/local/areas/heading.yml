@@ -1,0 +1,33 @@
+services:
+    StarterkitAreasBundle\Document\Areabrick\Heading:
+        arguments: [ '@Pimcore\Translation\Translator', '@parameter_bag' ]
+        autowire: true
+        tags:
+            - { name: pimcore.area.brick, id: heading }
+
+parameters:
+    heading:
+        headingTagStore:
+            h1:
+                name: 'H1'
+            h2:
+                name: 'H2 (Standard)'
+            h3:
+                name: 'H3'
+            h4:
+                name: 'H4'
+            h5:
+                name: 'H5'
+            h6:
+                name: 'H6'
+
+        headingClassStore:
+            default:
+                name: 'Standard'
+                cssClass: ''
+            primary:
+                name: 'Primary'
+                cssClass: 'primary'
+            secondary:
+                name: 'Secondary'
+                cssClass: 'secondary'

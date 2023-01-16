@@ -1,0 +1,9 @@
+services:
+
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: true
+
+    StarterkitAreasBundle\Builder\BrickDialogBoxConfigBuilderInterface: '@StarterkitAreasBundle\Builder\BrickDialogBoxConfigBuilder'
+    StarterkitAreasBundle\Builder\BrickDialogBoxConfigBuilder: ~

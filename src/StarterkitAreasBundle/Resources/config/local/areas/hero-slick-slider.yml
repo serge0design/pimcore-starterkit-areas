@@ -1,0 +1,42 @@
+#services:
+#    StarterkitAreasBundle\Document\Areabrick\HeroSlickSlider:
+#        arguments: [ '@Pimcore\Translation\Translator', '@parameter_bag' ]
+#        autowire: true
+#        tags:
+#            - { name: pimcore.area.brick, id: hero-slick-slider }
+#
+#parameters:
+#    hero-slick-slider:
+#        heroSlickSliderStore:
+#            default:
+#                name: 'Srtandard, Transparent'
+#                overlay: ''
+#            overlay1:
+#                name: 'Overlay 1'
+#                overlay: '/build/img/overlays/01.png'
+#            overlay2:
+#                name: 'Overlay 2'
+#                overlay: '/build/img/overlays/02.png'
+#            overlay3:
+#                name: 'Overlay 3'
+#                overlay: '/build/img/overlays/03.png'
+#            overlay4:
+#                name: 'Overlay 4'
+#                overlay: '/build/img/overlays/04.png'
+#            overlay5:
+#                name: 'Overlay 5'
+#                overlay: '/build/img/overlays/05.png'
+#            overlay6:
+#                name: 'Overlay 6'
+#                overlay: '/build/img/overlays/06.png'
+#            overlay7:
+#                name: 'Overlay 7'
+#                overlay: '/build/img/overlays/07.png'
+#            overlay8:
+#                name: 'Overlay 8'
+#                overlay: '/build/img/overlays/08.png'
+#            overlay9:
+#                name: 'Overlay 9'
+#                overlay: '/build/img/overlays/09.png'
+#
+#

@@ -1,0 +1,22 @@
+services:
+    StarterkitAreasBundle\Document\Areabrick\Spacer:
+        arguments: [ '@Pimcore\Translation\Translator', '@parameter_bag' ]
+        autowire: true
+        tags:
+            - { name: pimcore.area.brick, id: spacer }
+
+parameters:
+    spacer:
+        spacerClassStore:
+            default:
+                name: 'Srtandard (Editierbare Felder)'
+                cssClassRow: ''
+                cols: 3
+            customTemplate:
+                name: 'Card als Template'
+                cssClassRow: 'row-cols-lg-4'
+                cols: 3
+                template: 'secondary'
+            object:
+                name: 'Card als Objekt'
+                cssClassRow: 'row-cols-lg-3'

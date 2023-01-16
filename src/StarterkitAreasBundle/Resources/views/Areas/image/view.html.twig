@@ -1,0 +1,45 @@
+{% import '@StarterkitAreas/Includes/macro-wysiwyg.html.twig' as macroWysiwyg %}
+{% set placeholderContent =  "starterkitareas.area.image.caption.placeholder"|trans({}, 'admin') %}
+
+{% set checkboxEnableLightbox = pimcore_checkbox("checkboxEnableLightbox").isChecked %}
+{% set checkboxDisplayCaption = pimcore_checkbox("checkboxDisplayCaption").isChecked %}
+{% set selectImageRatio = pimcore_select("selectImageRatio").data|default('-4x3') %}
+{% set linkImage = pimcore_link("linkImage").data|default('') %}
+
+{% set image = pimcore_image("image",{
+    thumbnail: "ratio"~selectImageRatio,
+    required: true
+}) %}
+
+{% if macroWysiwyg.wysiwyg_options is defined %}
+    {% set caption =  macroWysiwyg.wysiwyg_options(selectWysiwygType|default('minimal'), itemIndex|default(''), placeholderContent) %}
+{% endif %}
+
+
+<figure>
+    {% if not editmode and checkboxEnableLightbox %}
+    <a data-caption="{{ (caption != '' ?  caption|replace({'<p>' : '', '</p>': ''}) : '') }}" class="mfp-image" href="{{ image.thumbnail("lightbox-img") }}">
+        {% endif %}
+
+        {% if editmode %}
+            {{ image|raw }}
+        {% else %}
+            {{ image.thumbnail("ratio"~selectImageRatio).html({
+                'imgAttributes': {
+                    'class': 'img-fluid',
+                    'alt' : image.alt,
+                },
+            })|raw }}
+        {% endif %}
+
+        {% if (not editmode and checkboxEnableLightbox) %}</a>{% endif %}
+
+    {% if checkboxDisplayCaption %}
+        {% if editmode or caption != '' %}
+            <figcaption>
+                {{ caption|raw }}
+            </figcaption>
+        {% endif %}
+    {% endif %}
+
+</figure>

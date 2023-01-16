@@ -1,0 +1,185 @@
+"key","en","de",
+
+"starterkitareas.area.input.placeholder", "Content", "Inhalt"
+
+"starterkitareas.area.paneltitle", "Settings", "Einstellungen"
+"starterkitareas.dialogbox.paneltitle","Area Settings","Area Einstellungen",
+"starterkitareas.area.blockquote.name","Blockquote","Blockzitat",
+"starterkitareas.area.blockquote.description","A minimal Html Text Editor","Ein minimaler HTML-Texteditor",
+"starterkitareas.area.blockquote.inputCite","HTML Citation Element (cite)","HTML-Zitatselement (cite)",
+"starterkitareas.area.blockquote.checkboxDisplayAuthor","Display Author","Zeile Author einblenden",
+"starterkitareas.area.blockquote.placeholder","Content Blockquote","Inhalt Zitat",
+
+"starterkitareas.area.divider.name","Divider","Divider",
+"starterkitareas.area.divider.description","A horizontal Line to divide Html Elements","Eine horizontale Linie zum Teilen von Html-Elementen",
+"starterkitareas.area.divider.selectDividerClass","Divider Class","Teiler Klasse",
+"starterkitareas.area.divider.solid","Default (Solid)","Standard (Solid)",
+"starterkitareas.area.divider.dashed","Dashed","Dashed",
+"starterkitareas.area.divider.dotted","Dotted","Dotted",
+"starterkitareas.area.divider.double","Double","Double",
+"starterkitareas.area.divider.groove","Groove","Groove",
+"starterkitareas.area.divider.imgnorepeat","Image/Pattern no repeat","Bild/Muster keine Wiederholung",
+"starterkitareas.area.divider.imgrepeat","Image/Pattern repeat horizontal","Bild/Muster horizontale Wiederholung",
+"starterkitareas.area.divider.selectWidthClass","Divider Width","Teiler Weite",
+"starterkitareas.area.divider.w100","Default (100%)","Standard (100%)",
+"starterkitareas.area.divider.w80","Width 80%","Weite 80%",
+"starterkitareas.area.divider.w75","Width 75%","Weite 75%",
+"starterkitareas.area.divider.w66","Width 66%","Weite 66%",
+"starterkitareas.area.divider.w50","Width 50%","Weite 50%",
+"starterkitareas.area.divider.w33","Width 33%","Weite 33%",
+"starterkitareas.area.divider.w25","Width 25%","Weite 25%",
+"starterkitareas.area.divider.selectSpacersizeClass","Divider Spacer Size (top,bottom)","Höhe des Aussenabstand (oben, unten)",
+"starterkitareas.area.divider.x1","Spacer x1","Abstand x1",
+"starterkitareas.area.divider.x2","Spacer x2","Abstand x2",
+"starterkitareas.area.divider.x3","Spacer x3","Abstand x3",
+"starterkitareas.area.divider.x4","Spacer x4","Abstand x4",
+"starterkitareas.area.divider.x5","Spacer x5","Abstand x5",
+"starterkitareas.area.divider.imageDividerImg","Divider Background Image","Teiler-Hintergrundbild",
+
+"starterkitareas.area.gallery.name","Gallery","Galerie",
+"starterkitareas.area.gallery.description","with different Layout and Lightbox Options","mit verschiedenen Layout- und Lightbox-Optionen",
+
+"starterkitareas.area.heading.name","Heading","Heading",
+"starterkitareas.area.heading.description","Select H1-H6","Auswahl H1-H6",
+"starterkitareas.area.heading.selectHeadingTag","Heading Tags","Überschriften Tags",
+"starterkitareas.area.heading.h1","Heading H1","Überschrift H1",
+"starterkitareas.area.heading.h2","Heading H2","Überschrift H2",
+"starterkitareas.area.heading.h3","Heading H3","Überschrift H3",
+"starterkitareas.area.heading.h4","Heading H4","Überschrift H4",
+"starterkitareas.area.heading.h5","Heading H5","Überschrift H5",
+"starterkitareas.area.heading.h6","Heading H6","Überschrift H6",
+"starterkitareas.area.heading.selectHeadingClass","Heading Class","Überschrift Klasse",
+"starterkitareas.area.heading.default","Default (no class used)","Standard (Keine Klasse ausgewählt)",
+"starterkitareas.area.heading.primary","Primary","Primär",
+"starterkitareas.area.heading.secondary","Secondary","Sekundär",
+"starterkitareas.area.heading.simpleOutputHeadingAnchor","","",
+"starterkitareas.area.heading.simpleOutputHeadingAnchor","Anchorlink name","Ankerlink Name",
+"starterkitareas.area.heading.checkboxEnableAnchor","Enable Anchorlink","Ankerlink aktivieren",
+"starterkitareas.area.heading.placeholder","Headline","Überschrift",
+
+"starterkitareas.area.image.name","Image","Image",
+"starterkitareas.area.image.description","with caption & Lightbox Options","mit Beschriftungs- und Lightbox-Optionen",
+"starterkitareas.area.image.strInfo","Either insert a link or activate the lightbox is possible","Entweder einen Link einfügen oder die Lightbox aktivieren ist möglich",
+"starterkitareas.area.image.selectImageRatio","Choose an aspect ratio","Wählen Sie ein Seitenverhältnis",
+"starterkitareas.area.image.1x1","Ratio 1x1","Ratio 1x1",
+"starterkitareas.area.image.3x2","Ratio 3x2","Ratio 3x2",
+"starterkitareas.area.image.4x3","Ratio 4x3","Ratio 4x3",
+"starterkitareas.area.image.4x5","Ratio 4x5","Ratio 4x5",
+"starterkitareas.area.image.16x9","Ratio 16x9","Ratio 16x9",
+"starterkitareas.area.image.21x9","Ratio 21x9","Ratio 21x9",
+"starterkitareas.area.image.checkboxDisplayCaption","Display Caption","Bildbeschriftung anzeigen",
+"starterkitareas.area.image.checkboxEnableLightbox","Enable Lightbox","Lightbox aktivieren",
+"starterkitareas.area.image.linkImage","Add Link to the Image","Link zum Bild hinzufügen",
+"starterkitareas.area.image.caption.placeholder","Image caption","Bild Beschriftung",
+
+"starterkitareas.area.section.name","Section","Section",
+"starterkitareas.area.section.description","Subdivision/outline of the document","Unterteilung/Gliederung des Dokuments",
+"starterkitareas.area.section.selectSectionType","Section Type","Sektion Typ",
+"starterkitareas.area.section.default","Default","Standard",
+"starterkitareas.area.section.sectionBgColor","Background Color","Hintergrundfarbe",
+"starterkitareas.area.section.sectionBgImage","Background Image","Hintergrundbild",
+"starterkitareas.area.section.selectSectionClass","Section Class","Sektion Klasse",
+"starterkitareas.area.section.default","Default (no class used)","Standard (keine Klassenangabe)",
+"starterkitareas.area.section.primary","Primary","Primär",
+"starterkitareas.area.section.secondary","Secondary","Sekundär",
+"starterkitareas.area.section.checkboxContainerType","Container width 100%'","Container Weite 100%'",
+"starterkitareas.area.section.colorPickerSectionBgColor","Section Background Color","Hintergrundfarbe Sektion",
+"starterkitareas.area.section.checkboxSectionBgImageParallax","Enable Parallax Effect","Parallax Effekt aktivieren",
+"starterkitareas.area.section.inputAnchorName", "Anchor Name","Anker Name"
+"starterkitareas.area.snippet.name","Snippet","Ausschnitt",
+"starterkitareas.area.snippet.description","Display predefined Content Snippet","Vordefiniertes Inhalts-Snippet anzeigen",
+
+"starterkitareas.area.spacer.name","Spacer","Spacer",
+"starterkitareas.area.spacer.description","An adjustable, empty Html Element","Ein anpassbares, leeres HTML-Element",
+"starterkitareas.area.spacer.selectSpacerClass","Spacer Size (top,bottom)","Abstandhöhe (oben, unten)",
+"starterkitareas.area.spacer.x1","Spacer x1","Abstand x1",
+"starterkitareas.area.spacer.x2","Spacer x2","Abstand x2",
+"starterkitareas.area.spacer.x3","Spacer x3","Abstand x3",
+"starterkitareas.area.spacer.x4","Spacer x4","Abstand x4",
+"starterkitareas.area.spacer.x5","Spacer x5","Abstand x5",
+
+"starterkitareas.area.video.name","Video","Video",
+"starterkitareas.area.video.description","with caption & Lightbox Options","mit Beschriftungs- und Lightbox-Optionen",
+"starterkitareas.area.video.strInfo","Insert custom video placeholder image and enable/disable video options","Eigenes Video Platzhalter Bild einfügen und Video-Optionen aktivieren/deaktivieren",
+"starterkitareas.area.video.imageVideoPrview","Video placeholder image ","Video Platzhalter Bild "
+"starterkitareas.area.video.selectVideoRatio","Choose the video aspect ratio","Wählen Sie das Video Seitenverhältnis",
+"starterkitareas.area.video.4x3","Ratio 4x3","Ratio 4x3",
+"starterkitareas.area.video.16x9","Ratio 16x9","Ratio 16x9",
+"starterkitareas.area.video.21x9","Ratio 21x9","Ratio 21x9",
+"starterkitareas.area.video.checkboxEnableLightbox","Enable Lightbox","Lightbox aktivieren",
+"starterkitareas.area.video.checkboxDisplayCaption","Display Caption","Beschriftung anzeigen",
+"starterkitareas.area.video.checkboxDisableControls","Disable Controls","Steuerelemente deaktivieren",
+"starterkitareas.area.video.checkboxEnableAutoplay","Enable Autoplay","Autoplay aktivieren",
+"starterkitareas.area.video.checkboxEnableLoop","Enable Loop","Wiederholung aktivieren",
+"starterkitareas.area.video.caption.placeholder","Video Caption","Video Beschriftung",
+
+"starterkitareas.area.wysiwyg.name","Wysiwyg","Wysiwyg",
+"starterkitareas.area.wysiwyg.description","Html Text Editor","HTML-Text-Editor",
+"starterkitareas.area.wysiwyg.selectWysiwygType","Wysiwyg Type","Wysiwyg Typ",
+"starterkitareas.area.wysiwyg.default","Default","Standard",
+"starterkitareas.area.wysiwyg.medium","Medium","Medium",
+"starterkitareas.area.wysiwyg.minimal","Minimal","Minimal",
+"starterkitareas.area.wysiwyg.placeholder","Content","Inhalt"
+
+"starterkitareas.area.one-pager.name", "Onepager", "Onepager"
+"starterkitareas.area.one-pager.description", "Automate anchor targets from documents", "Automatisieren von Ankern aus Dokumenten"
+"starterkitareas.area.one-pager.relationAnchorParentDoc", "Drop parent Document here:", "Übergeordnetes Dokument hier ablegen:"
+"starterkitareas.area.one-pager.editmode.description", "Please drop document into Edit->Relation Field", "Bitte legen Sie das Dokument in Bearbeiten->Beziehungsfeld ab."
+"starterkitareas.area.one-pager.checkboxDispalyIdEditmode", "Show Anchor-ID in edit mode","Anker-Id im Editmode anzeigen"
+
+"starterkitareas.area.hero-slick-slider.name", "Hero Splitted Slick-Slider", "Hero Splitted Slick-Slider"
+"starterkitareas.area.hero-slick-slider.description","Vertical counter-rotating slider","Vertikal gegen sich drehender Slider"
+"starterkitareas.area.hero-slick-slider.editmode.description", "Please drop data object folder into Edit->Relation Field", "Bitte legen Sie den Faten.Objekt Ordner in Bearbeiten->Beziehungsfeld ab."
+"starterkitareas.area.hero-slick-slider.relationObjectSliderFolder","Drop Data Objects Folder here:", "Daten Objekte Ordner mit den Slider Objekten hier ablegen:"
+"starterkitareas.area.hero-slick-slider.checkboxHideArrows","Hide Arrows","Pfeile ausblenden"
+"starterkitareas.area.hero-slick-slider.checkboxHideDots","Hide Dots","Dots ausblenden"
+"starterkitareas.area.hero-slick-slider.selectOverlayType","select overlay","Overlay auswählen"
+
+"starterkitareas.area.columns.name", "Columns", "Columns"
+"starterkitareas.area.columns.description", "Columns layout in horizontal divisions to place content", "Spalten Layout in horizontaler Unterteilung um Inhalt zu platzieren"
+"starterkitareas.area.columns.selectColumnsType", "Select number of columns", "Spaltenanzahl auswählen"
+"starterkitareas.area.columns.inputId", "Column-Id: input + consecutively numbered", "Column-Id, wird fortlaufend nummeriert"
+"starterkitareas.area.columns.checkboxDispalyIdEditmode", "Show column ID in edit mode","Column-Id im Editmode anzeigen"
+"starterkitareas.area.columns.inputId.description", "Column Id","Column Id"
+
+"starterkitareas.area.card.name", "Card", "Card"
+"starterkitareas.area.card.description", "Title, Text, Link: Editable or as Data-Object", "Titel, Text, Link: Editierbar oder als Daten-Objekt"
+"starterkitareas.area.card.title", "Title", "Titel"
+"starterkitareas.area.card.content", "Content", "Inhalt"
+"starterkitareas.area.card.selectCardType", "Select Card Type", "Kartentyp auswählen"
+"starterkitareas.area.card.selectCardClass", "Select Card Class", "Klasse auswählen"
+"starterkitareas.area.card.selectHeaderOrder", "Select Header Order", "Reihenfolge Kopfzeile auswählen"
+"starterkitareas.area.card.checkboxDisableImage", "Disable Image", "Bild ausblenden"
+"starterkitareas.area.card.checkboxDisableHeader", "Disable Header", "Kopfzeile ausblenden"
+"starterkitareas.area.card.checkboxDisableFooter", "Disable Footer", "Fusszeile ausblenden"
+
+"starterkitareas.area.cards.name" , "Cards", "Cards"
+"starterkitareas.area.cards.description", "Cards layout", "Karten Layout"
+"starterkitareas.area.cards.selectCardType", "Select Card Type", "Kartentyp auswählen"
+"starterkitareas.area.cards.selectCardsCols", "Select Columns", "Spaltenanzahl auswählen"
+"starterkitareas.area.cards.selectHeaderOrder", "Select Header Order", "Reihenfolge Kopfzeile auswählen"
+"starterkitareas.area.cards.checkboxDisableImage", "Disable Image", "Bild ausblenden"
+"starterkitareas.area.cards.checkboxDisableHeader", "Disable Header", "Kopfzeile ausblenden"
+"starterkitareas.area.cards.checkboxDisableFooter", "Disable Footer", "Fusszeile ausblenden"
+
+"starterkitareas.area.iframe.name", "Iframe", "Iframe"
+"starterkitareas.area.iframe.description", "The Inline Frame element", "Das Inline-Frame-Element"
+"starterkitareas.area.iframe.inputName", "Iframe Name, title & ID", "Iframe Name, Titel & ID"$
+"starterkitareas.area.iframe.checkboxAllowfullscreen", "Allowfullscreen", "Allowfullscreen"
+"starterkitareas.area.iframe.textareaSrc", "Iframe Src", "Iframe Src"
+"starterkitareas.area.iframe.selectReferrerpolicy", "Referrerpolicy", "Referrerpolicy"
+"starterkitareas.area.iframe.selectSandbox", "Sandbox", "Sandbox"
+
+"starterkitareas.area.tiles.name", "Tiles", "Tiles"
+"starterkitareas.area.tiles.description","Tiles Grid", "Kachelnraster"
+"starterkitareas.area.tiles.selectTileType", "Select Tiles Type", "Kacheln Typ wählen"
+"starterkitareas.area.tiles.editmode.description", "Please drop data object folder into Edit->Relation Field", "Bitte legen Sie den Faten.Objekt Ordner in Bearbeiten->Beziehungsfeld ab."
+"starterkitareas.area.tiles.relationTiles", "Relation Field","Beziehungsfeld"
+
+"starterkitareas.area.hero-bs-slider.name", "Bootstrap Carousel","Bootstrap Carousel"
+"starterkitareas.area.hero-bs-slider.description", "Data Objects Slides", "Daten Objekte Slides"
+"starterkitareas.area.hero-bs-slider.selectSliderType" "select Slide Type", "Slidertyp auswählen"
+"starterkitareas.area.hero-bs-slider.selectSliderType","select overlay","Overlay auswählen"
+"starterkitareas.area.hero-bs-slider.relationObjectSliderFolder","Drop Data Objects Folder here:", "Daten Objekte Ordner mit den Slider Objekten hier ablegen:"
+"starterkitareas.area.hero-bs-slider.checkboxHideArrows","Hide Arrows","Pfeile ausblenden"
+"starterkitareas.area.hero-bs-slider.checkboxHideDots","Hide Dots","Dots ausblenden"

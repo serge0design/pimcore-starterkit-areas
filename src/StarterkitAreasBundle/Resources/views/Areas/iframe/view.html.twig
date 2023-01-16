@@ -1,0 +1,27 @@
+{% set inputName = pimcore_input("inputName").data|default('') %}
+{% set inputClass = pimcore_input("inputClass").data|default('') %}
+{% set textareaSrc = pimcore_textarea("textareaSrc").data|default('') %}
+{#{% set selectSandboxType = pimcore_multiselect("selectSandboxType")  %}#}
+{% set selectReferrerpolicyType = pimcore_select("selectReferrerpolicyType").data|default('no-referrer') %}
+{% set checkboxReadonly = pimcore_checkbox("checkboxReadonly").isChecked %}
+
+<iframe
+    src="{{ textareaSrc }}"
+    {% if(inputClass != '' or checkboxReadonly) %}
+        class="{{ (checkboxReadonly ? 'readonly' : '')~(inputClass != '' ? ' ' ~ inputClass : '') }}"
+    {% endif %}
+    {% if(inputName != '') %}
+        id="{{ inputName }}"
+        name="{{ inputName }}"
+        title="{{ inputName }}"
+    {% endif %}
+{#    {% if(selectSandboxType != '') %}#}
+{#        sandbox="{{ selectSandboxType }}"#}
+{#    {% endif %}#}
+    referrerpolicy="{{ selectReferrerpolicyType }}"
+    {% if checkboxReadonly %}
+        readonly
+    {% endif %}
+    allowfullscreen
+    loading="lazy"
+></iframe>

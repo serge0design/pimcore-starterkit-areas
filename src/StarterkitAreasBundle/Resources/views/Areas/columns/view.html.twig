@@ -1,0 +1,29 @@
+{% set rowClassKey = pimcore_select("selectRowClass").data|default('default') %}
+{% set rowSettings = columns.rowClassStore[rowClassKey]|default([]) %}
+{% set rowCssClass = rowSettings.cssClass|default('') %}
+
+{% set columnTypeKey = pimcore_select("selectColumnType").data|default('default') %}
+{% set columnSettings = columns.columnsTypeStore[columnTypeKey]|default([]) %}
+{% set customTemplate = columnSettings.customTamplate|default('') %}
+{% set cols = columnSettings.cols|default([]) %}
+{% set attributes =  columnSettings.attributes|default('') %}
+
+<div class="row {{ rowCssClass }}">
+    {% if customTemplate is defined and customTemplate !='' %}
+        {% include '@App/includes/themes/columns/'~customTemplate~'.html.twig' %}
+    {% else %}
+        {% if columnSettings.cols is defined and columnSettings.cols is iterable %}
+            {% for item in columnSettings.cols %}
+                <div
+                    class="{{ item }}"
+                    {{ (attributes !='' ? attributes : '') }}
+                >
+                    {% include '@StarterkitAreas/Areas/areablock/mainAreablock.html.twig' with {
+                        'name': 'columns-areablock'~loop.index,
+                        'type' : 'content'
+                    } %}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endif %}
+</div>

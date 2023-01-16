@@ -1,0 +1,68 @@
+{% set relationObjectSliderFolder = pimcore_relation("relationObjectSliderFolder").getElement()|default("") %}
+{% set checkboxHideArrows = pimcore_checkbox("checkboxHideArrows").isChecked %}
+{% set checkboxHideDots = pimcore_checkbox("checkboxHideDots").isChecked %}
+
+{% if relationObjectSliderFolder is pimcore_data_object_folder %}
+    <div class="slider-wrapper">
+        <div class="slider">
+            {% for item in relationObjectSliderFolder.getChildren %}
+                {% if item is pimcore_data_object_class("HeroSlide") %}
+                    {% if item.getImage is pimcore_asset_image %}
+                        <div class="item">
+                            {{ item.getImage.getThumbnail("heroImage").html({
+                                'imgAttributes': {
+                                    'class': 'img-fluid',
+                                }
+                            })|raw }}
+                        </div>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="slideshow-text">
+        {% for item in relationObjectSliderFolder.getChildren %}
+            {% if item is pimcore_data_object_class("HeroSlide") %}
+                <div class="item-content">
+                    <div class="content-wrapper">
+                        <h3 class="title">{{ item.getTitle }}</h3>
+                        {{ item.getContent|nl2br }}
+                        {% if item.getCallToActionLink != null %}
+                            <a class="btn-call-to-action btn-anchor"
+                               href="#{{~ stringToLowerFormatter(item.getCallToActionLink.key) ~}}"
+                               target="_parent">
+                                {% if item.getLinktext != '' %}
+                                    {{ item.getLinktext }}
+                                {% else %}
+                                    {{ "Zur Reservation"|trans }}
+                                {% endif %}
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <div class="slider-nav-wrapper">
+        <div class="inner">
+            {% if checkboxHideArrows %}
+                <div class="custom-prev slick-nav"><i class="bi bi-caret-up-fill"></i></div>
+            {% endif %}
+            {% if checkboxHideDots %}
+                <div class="custom-dots"></div>
+            {% endif %}
+            {% if checkboxHideArrows %}
+                <div class="custom-next slick-nav"><i class="bi bi-caret-down-fill"></i></div>
+            {% endif %}
+        </div>
+    </div>
+
+{% else %}
+    <div class="container">
+        <div class="col alert alert-warning m-5">
+            {{ "Please drop Data Object Folder into Edit->Relation Field"|trans({}, 'admin') }}
+        </div>
+    </div>
+{% endif %}

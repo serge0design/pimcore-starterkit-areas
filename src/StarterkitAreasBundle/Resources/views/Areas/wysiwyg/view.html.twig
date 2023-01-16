@@ -1,0 +1,10 @@
+{% set selectWysiwygType = pimcore_select("selectWysiwygType").data|default('') %}
+
+{% set placeholderContent =  "starterkitareas.area.wysiwyg.placeholder"|trans({}, 'admin') %}
+{% set itemIndex = '' %}
+
+{% import '@StarterkitAreas/Includes/macro-wysiwyg.html.twig' as macroWysiwyg %}
+
+ {% if macroWysiwyg.wysiwyg_options is defined %}
+     {{ macroWysiwyg.wysiwyg_options(selectWysiwygType, itemIndex, placeholderContent) }}
+ {% endif %}

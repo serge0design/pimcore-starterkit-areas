@@ -1,0 +1,53 @@
+{% import '@StarterkitAreas/Includes/macro-card-default.html.twig' as macroCardDefault %}
+{% import '@StarterkitAreas/Includes/macro-card-object.html.twig' as macroCardObject %}
+
+{% set selectCardsTypeKey = pimcore_select("selectCardsType").data|default('default') %}
+{% set cardsSettings = cards.cardsTypeStore[selectCardsTypeKey]|default([]) %}
+
+{% set selectCssClassRowKey = pimcore_select("selectCssClassRow").data|default('default') %}
+{% set cardsSettings = cards.cssClassRowStore[selectCssClassRowKey]|default([]) %}
+{% set cssClassRow = cardsSettings.cssClassRow|default('') %}
+
+{% set cols = cardsSettings.cols|default(3) %}
+{% set cssClass =  (cardsSettings.colCssClass is defined ? cardsSettings.colCssClass : '') %}
+
+{% set customTemplate =  (cardsSettings.template is defined ? cardsSettings.template : '') %}
+
+{% set cardsObject = pimcore_relation("relationCardsObject").getElement().getChildren|default("") %}
+{% set checkboxReverseRowHeader = pimcore_checkbox("checkboxReverseRowHeader").isChecked %}
+
+<div class="row {{ cssClassRow }}">
+    {% if selectCardsTypeKey == 'default' %}
+
+        {% for i in 1..cols %}
+            {% set itemId =  'card'~i %}
+            {% if macroCardDefault.card_options is defined %}
+                {{ macroCardDefault.card_options(itemId, cssClass, checkboxReverseRowHeader) }}
+            {% endif %}
+        {% endfor %}
+
+    {% elseif selectCardsTypeKey == 'object' %}
+
+        {% for item in cardsObject %}
+            {% set itemId =  'card'~item %}
+            {% if macroCardObject.card_options is defined %}
+                {{ macroCardObject.card_options(item, itemId, cssClass, checkboxReverseRowHeader) }}
+            {% endif %}
+        {% endfor %}
+
+    {% elseif selectCardsTypeKey == 'customTemplate' %}
+
+        {% for i in 1..cols %}
+            {% if customTemplate is defined %}
+                {% include '@App/includes/themes/card/'~customTemplate~'.html.twig' %}
+            {% endif %}
+        {% endfor %}
+
+    {% else %}
+
+        {#        <div class="alert alert-warning"> #}
+        {#            <p>{{ "starterkitareas.area.card.define.message"|trans({}, 'admin') }}</p> #}
+        {#        </div> #}
+
+    {% endif %}
+</div>

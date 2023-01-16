@@ -1,0 +1,28 @@
+{% set selectBtnType = pimcore_select("selectBtnType").data|default('internal') %}
+{% set selectBtnClassKey = pimcore_select("selectBtnClass").data|default('') %}
+{% set ctaSettings = calltoaction.btnClassStore[selectBtnClassKey]|default([]) %}
+{% set ctaBtnClass = ctaSettings.cssClass %}
+
+{% set internalUrl = pimcore_relation("relationTypeInternal").element|default('') %}
+{% set externalUrl = pimcore_link('relationTypeExternal').data|default(null) %}
+
+{% set checkboxEnableModal = pimcore_checkbox("checkboxEnableModal")|default('0') %}
+
+{% set inputLinkText =  pimcore_input("inputLinkText",{
+    placeholder: "Text Call to action"
+}) %}
+
+{% set href = '' %}
+{% if internalUrl != '' %}
+    {% set href =  internalUrl.fullpath %}
+{% elseif externalUrl != null %}
+    {% set href =  externalUrl.path %}
+{% endif %}
+
+{% if editmode %}
+    <span class="btn btn-{{~ ctaBtnClass ~}}">{{ inputLinkText|raw }}</span>
+{% elseif href != '' %}
+    <a target="_blank" class="btn btn-{{~ ctaBtnClass ~}}" href="{{ href }}" data-caption="{{ inputLinkText.data }}">
+        {{ inputLinkText.data }}
+    </a>
+{% endif %}

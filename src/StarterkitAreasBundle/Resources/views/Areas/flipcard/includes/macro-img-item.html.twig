@@ -1,0 +1,19 @@
+{% macro item_details(item, selectColType, checkboxEnableLightbox) %}
+    {% if item is pimcore_asset_image %}
+        <div class="col-12 {{ (selectColType !='' ? selectColType : '') }}">
+            {% if not editmode and checkboxEnableLightbox %}
+            <a class="mfp-gallery-item" href="{{ item.fullpath }}">
+                {% endif %}
+                <figure>
+                    {{ item.thumbnail("gallery-preview-img").html({
+                        'imgAttributes': {
+                            'class': 'img-fluid',
+                        },
+                    })|raw }}
+                </figure>
+                {% if not editmode and checkboxEnableLightbox %}
+            </a>
+            {% endif %}
+        </div>
+    {% endif %}
+{% endmacro %}

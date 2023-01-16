@@ -1,0 +1,78 @@
+{% macro card_options(itemId, cssClass, checkboxReverseRowHeader) %}
+
+    {% set itemTitle = pimcore_input("itemTitle"~itemId,{
+        placeholder: 'Titel'
+    }) %}
+
+    {% set itemImage = pimcore_image("itemImage"~itemId,{
+        thumbnail: "cardImage"
+    }) %}
+
+    {% set itemContent = pimcore_wysiwyg("itemContent"~itemId,{
+        placeholder: 'Inhalt'
+    }) %}
+
+    {% set itemAddon = pimcore_wysiwyg("itemAddon"~itemId,{
+        placeholder: 'Inhalt Addon'
+    }) %}
+
+    {% set itemCallToAction = pimcore_link("itemCallToAction"~itemId,{
+        placeholder: 'Inhalt Addon'
+    }) %}
+
+    <div id="{{ (itemId !='' ? itemId : '' ) ~}}"
+         class="col col-card {{ (cssClass !='' ? cssClass : '' ) }}">
+
+        <div class="card h-100">
+            {% if itemTitle != '' or itemImage.Image is pimcore_asset_image %}
+                <div class="card-header-wrapper{{~ (checkboxReverseRowHeader ? '--reverse' : '') ~}}">
+
+                    {% if editmode %}
+                        {{ itemImage|raw }}
+                    {% elseif itemImage.Image is pimcore_asset_image %}
+                        {{ itemImage.thumbnail("cardImage").html({
+                            'imgAttributes': {
+                                'class': 'img-fluid'
+                            },
+                        })|raw }}
+                    {% endif %}
+
+                    {% if editmode or itemTitle != '' %}
+                        <div class="card-header">
+                            <h3>{{ itemTitle|raw }}</h3>
+                        </div>
+                    {% endif %}
+
+                </div>
+            {% endif %}
+
+            <div class="card-body">
+                {% if itemContent != '' %}
+                    <div class="description">
+                        {{ itemContent|raw }}
+                    </div>
+                {% endif %}
+
+                {% if itemAddon != '' %}
+                    <div class="addon">
+                        {{ itemAddon|raw }}
+                    </div>
+                {% endif %}
+            </div>
+
+            {% if editmode or itemCallToAction != '' %}
+                <div class="card-footer">
+                    {% if editmode %}
+                        <span class="btn-card-link w-100">{{ itemCallToAction|raw }}</span>
+                    {% else %}
+                        <a href="{{ itemCallToAction.href }}" class="btn btn-card-link">
+                            {{ itemCallToAction.text }}
+                        </a>
+                    {% endif %}
+                </div>
+            {% endif %}
+
+        </div>
+    </div>
+
+{% endmacro %}

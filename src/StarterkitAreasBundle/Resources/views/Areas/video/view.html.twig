@@ -1,0 +1,76 @@
+{% set selectVideoRatio = pimcore_select("selectVideoRatio").data|default('-3x2') %}
+{% set checkboxEnableLightbox = pimcore_checkbox("checkboxEnableLightbox").isChecked %}
+{% set checkboxDisplayCaption = pimcore_checkbox("checkboxDisplayCaption").isChecked %}
+
+{% import '@StarterkitAreas/Includes/macro-wysiwyg.html.twig' as macroWysiwyg %}
+{% set placeholderContent =  "starterkitareas.area.video.caption.placeholder"|trans({}, 'admin') %}
+
+{% set controls = ( pimcore_checkbox("checkboxDisableControls").isChecked ? 0 : 1) %}
+{% set autoplay = ( pimcore_checkbox("checkboxEnableAutoplay").isChecked  ? 1 : 0) %}
+{% set loop =( pimcore_checkbox("checkboxEnableLoop").isChecked  ? 1 : 0) %}
+
+{% set video = pimcore_video("video",{
+    required: true,
+}) %}
+
+{% if macroWysiwyg.wysiwyg_options is defined %}
+    {% set caption =  macroWysiwyg.wysiwyg_options(selectWysiwygType|default('minimal'), itemIndex|default(''), placeholderContent) %}
+{% endif %}
+
+ {% if not video.isEmpty %}
+     {% set videoData = video.data %}
+
+     {% if videoData.type == "youtube" %}
+         {% set videoUrl = 'https://www.youtube.com/embed/'~videoData.id~'?controls='~controls~'&autoplay='~autoplay~'&mute='~autoplay~'&loop='~loop~'&playlist='~videoData.id~'&iv_load_policy=3&showinfo=0&rel=0' %}
+         {% set posterImg = 'https://img.youtube.com/vi/'~videoData.id~'/hqdefault.jpg' %}
+     {% elseif videoData.type == "vimeo" %}
+         {% set videoUrl = 'https://player.vimeo.com/video/'~videoData.id~'?controls='~controls~'&autoplay='~autoplay~'&muted='~autoplay~'&loop='~loop~'&pip=1' %}
+         {% set posterImg = 'https://vumbnail.com/'~videoData.id~'_large.jpg' %}
+     {% elseif videoData.type == "dailymotion" %}
+         {% set videoUrl = 'https://www.dailymotion.com/embed/video/'~videoData.id~'?controls='~controls~'&autoplay='~autoplay~'&mute='~autoplay~'&loop='~loop %}
+         {% set posterImg = 'https://www.dailymotion.com/thumbnail/720/video/'~videoData.id %}
+     {% else %}
+         {% set videoUrl = videoData.path %}
+         {% set posterImg = (video.getPosterAsset() != '' ? video.getPosterAsset().thumbnail("ratio-16x9") : 'https://placehold.co/1920x1080/000000/FFFFFF?text=Hello+World+Play') %}
+     {% endif %}
+
+ {% endif %}
+
+<figure>
+    {% if editmode %}
+        {{ video|raw }}
+    {% else %}
+        <div class="ratio ratio{{~ selectVideoRatio ~}}">
+            {% if  checkboxEnableLightbox %}
+                <a data-caption="{{ (caption != '' ?  caption|replace({'<p>' : '', '</p>': ''}) : '') }}" class="mfp-video" href="{{ videoUrl }}">
+                    <img class="img-fluid" src="{{ posterImg }}" alt="">
+                </a>
+            {% else %}
+                {% if videoData.type == 'asset' %}
+                    <video class="video"
+                           playsinline
+                           src="{{ videoUrl }}"
+                            {{ (controls == 1 ? " controls" : '') }}
+                            {{ (autoplay == 1 ? " autoplay" : '') }}
+                            {{ (autoplay == 1 ? " muted" : '') }}
+                            {{ (loop == 1 ? " loop" : '') }}
+                    >
+                    </video>
+                {% else %}
+                    <iframe width="100%" height="100%" src="{{ videoUrl }}"
+                            allow="autoplay; fullscreen; picture-in-picture">
+                    </iframe>
+                {% endif %}
+            {% endif %}
+        </div>
+    {% endif %}
+
+    {% if checkboxDisplayCaption %}
+        {% if editmode or caption != '' %}
+            <figcaption>
+                {{ caption|raw }}
+            </figcaption>
+        {% endif %}
+    {% endif %}
+
+</figure>
