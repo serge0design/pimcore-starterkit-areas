@@ -1,0 +1,41 @@
+pimcore:
+    assets:
+        image:
+            thumbnails:
+                definitions:
+                    tilesImageContain:
+                        items:
+                            -
+                                method: contain
+                                arguments:
+                                    width: 800
+                                    height: 800
+                                    forceResize: false
+                        medias:
+                            '(max-width: 576px)':
+                                -
+                                    method: contain
+                                    arguments:
+                                        width: 576
+                                        height: 576
+                                        forceResize: false
+                            '(max-width: 768px)':
+                                -
+                                    method: contain
+                                    arguments:
+                                        width: 768
+                                        height: 768
+                                        forceResize: false
+                        name: tilesImageContain
+                        description: ''
+                        group: tiles
+                        format: SOURCE
+                        quality: 100
+                        highResolution: 0.0
+                        preserveColor: false
+                        preserveMetaData: false
+                        rasterizeSVG: false
+                        downloadable: false
+                        modificationDate: 1675264899
+                        creationDate: 1675243754
+                        preserveAnimation: false

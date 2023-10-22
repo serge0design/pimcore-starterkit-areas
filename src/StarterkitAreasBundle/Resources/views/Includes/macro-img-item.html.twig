@@ -5,7 +5,7 @@
 
     <figure>
         {% if not editmode and checkboxEnableLightbox %}
-        <a class="mfp-item" href="{{ item.thumbnail("ratio-16x9-contain") }}">
+        <a class="mfp-item" href="{{ item.thumbnail("hero-16x9-contain") }}" aria-label="{{ "Enlarge image in a Popup Gallery"|trans }}">
             {% endif %}
 
             {{ item.thumbnail("ratio-"~selectImageRatio).html({

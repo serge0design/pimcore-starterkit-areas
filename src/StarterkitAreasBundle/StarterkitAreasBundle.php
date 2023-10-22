@@ -43,14 +43,4 @@ class StarterkitAreasBundle extends AbstractPimcoreBundle
     {
         return self::PACKAGE_NAME;
     }
-
-    public function getDescription()
-    {
-        return 'A simple collection of areabricks.';
-    }
-
-
-    public function getVersion(){
-        return '1.0.0';
-    }
 }

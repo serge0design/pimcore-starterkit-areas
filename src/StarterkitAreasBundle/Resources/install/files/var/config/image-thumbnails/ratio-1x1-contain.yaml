@@ -1,0 +1,34 @@
+pimcore:
+    assets:
+        image:
+            thumbnails:
+                definitions:
+                    ratio-1x1-contain:
+                        items:
+                            -
+                                method: contain
+                                arguments:
+                                    width: 768
+                                    height: 768
+                                    forceResize: false
+                        medias:
+                            '(max-width :576px)':
+                                -
+                                    method: contain
+                                    arguments:
+                                        width: 576
+                                        height: 576
+                                        forceResize: false
+                        name: ratio-1x1-contain
+                        description: ''
+                        group: content
+                        format: SOURCE
+                        quality: 100
+                        highResolution: 0.0
+                        preserveColor: false
+                        preserveMetaData: false
+                        rasterizeSVG: false
+                        downloadable: false
+                        modificationDate: 1675247654
+                        creationDate: 1669214030
+                        preserveAnimation: false

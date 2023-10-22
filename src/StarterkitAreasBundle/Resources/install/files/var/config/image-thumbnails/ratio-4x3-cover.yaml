@@ -1,0 +1,36 @@
+pimcore:
+    assets:
+        image:
+            thumbnails:
+                definitions:
+                    ratio-4x3-cover:
+                        items:
+                            -
+                                method: cover
+                                arguments:
+                                    width: 768
+                                    height: 576
+                                    positioning: center
+                                    forceResize: true
+                        medias:
+                            '(max-width :576px)':
+                                -
+                                    method: cover
+                                    arguments:
+                                        width: 576
+                                        height: 432
+                                        positioning: center
+                                        forceResize: true
+                        name: ratio-4x3-cover
+                        description: ''
+                        group: content
+                        format: SOURCE
+                        quality: 100
+                        highResolution: 0.0
+                        preserveColor: false
+                        preserveMetaData: false
+                        rasterizeSVG: false
+                        downloadable: false
+                        modificationDate: 1675247496
+                        creationDate: 1669214030
+                        preserveAnimation: false

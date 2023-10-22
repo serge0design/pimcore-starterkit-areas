@@ -1,0 +1,34 @@
+pimcore:
+    assets:
+        image:
+            thumbnails:
+                definitions:
+                    ratio-3x2-contain:
+                        items:
+                            -
+                                method: contain
+                                arguments:
+                                    width: 768
+                                    height: 512
+                                    forceResize: true
+                        medias:
+                            '(max-width :576px)':
+                                -
+                                    method: contain
+                                    arguments:
+                                        width: 576
+                                        height: 384
+                                        forceResize: true
+                        name: ratio-3x2-contain
+                        description: ''
+                        group: content
+                        format: SOURCE
+                        quality: 100
+                        highResolution: 0.0
+                        preserveColor: false
+                        preserveMetaData: false
+                        rasterizeSVG: false
+                        downloadable: false
+                        modificationDate: 1675247659
+                        creationDate: 1669214030
+                        preserveAnimation: false

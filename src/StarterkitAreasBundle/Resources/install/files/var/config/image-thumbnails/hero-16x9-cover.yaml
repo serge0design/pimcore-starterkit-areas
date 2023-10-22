@@ -1,0 +1,68 @@
+pimcore:
+    assets:
+        image:
+            thumbnails:
+                definitions:
+                    hero-16x9-cover:
+                        items:
+                            -
+                                method: cover
+                                arguments:
+                                    width: 2400
+                                    height: 1350
+                                    positioning: center
+                                    forceResize: true
+                        medias:
+                            '(max-width: 1920px)':
+                                -
+                                    method: cover
+                                    arguments:
+                                        width: 1920
+                                        height: 1080
+                                        positioning: center
+                                        forceResize: true
+                            '(max-width: 1600px)':
+                                -
+                                    method: cover
+                                    arguments:
+                                        width: 1600
+                                        height: 900
+                                        positioning: center
+                                        forceResize: true
+                            '(max-width: 1200px)':
+                                -
+                                    method: cover
+                                    arguments:
+                                        width: 1200
+                                        height: 675
+                                        positioning: center
+                                        forceResize: true
+                            '(max-width: 768px)':
+                                -
+                                    method: cover
+                                    arguments:
+                                        width: 768
+                                        height: 432
+                                        positioning: center
+                                        forceResize: true
+                            '(max-width: 576px)':
+                                -
+                                    method: cover
+                                    arguments:
+                                        width: 576
+                                        height: 380
+                                        positioning: center
+                                        forceResize: true
+                        name: hero-16x9-cover
+                        description: ''
+                        group: hero
+                        format: SOURCE
+                        quality: 100
+                        highResolution: 0.0
+                        preserveColor: false
+                        preserveMetaData: false
+                        rasterizeSVG: false
+                        downloadable: false
+                        modificationDate: 1675249298
+                        creationDate: 1675248093
+                        preserveAnimation: false

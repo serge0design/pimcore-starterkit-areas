@@ -9,7 +9,7 @@
                 label: "starterkitareas.area.tiles.checkboxImageIsContain"
             }) %}
             {% set imageTile = pimcore_image("imageTile",{
-                thumbnail: "cardImage",
+                thumbnail: "tilesImage",
                 reload: true,
                 required: true
             }) %}
@@ -30,9 +30,9 @@
                         {{ imageTile|raw }}
                     {% else %}
 
-                        {% set tileThumbnail = "cardImage" %}
+                        {% set tileThumbnail = "tilesImage" %}
                         {% if imageIsContain.isChecked %}
-                            {% set tileThumbnail = "cardImageContain" %}
+                            {% set tileThumbnail = "tilesImageContain" %}
                         {% endif %}
 
                         {% if imageTile.Image is pimcore_asset_image %}

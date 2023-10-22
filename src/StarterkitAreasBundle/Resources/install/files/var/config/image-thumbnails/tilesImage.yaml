@@ -1,0 +1,44 @@
+pimcore:
+    assets:
+        image:
+            thumbnails:
+                definitions:
+                    tilesImage:
+                        items:
+                            -
+                                method: cover
+                                arguments:
+                                    width: 1200
+                                    height: 900
+                                    positioning: center
+                                    forceResize: true
+                        medias:
+                            '(max-width: 576px)':
+                                -
+                                    method: cover
+                                    arguments:
+                                        width: 576
+                                        height: 432
+                                        positioning: center
+                                        forceResize: true
+                            '(max-width: 768px)':
+                                -
+                                    method: cover
+                                    arguments:
+                                        width: 768
+                                        height: 576
+                                        positioning: center
+                                        forceResize: true
+                        name: tilesImage
+                        description: ''
+                        group: tiles
+                        format: SOURCE
+                        quality: 100
+                        highResolution: 0.0
+                        preserveColor: false
+                        preserveMetaData: false
+                        rasterizeSVG: false
+                        downloadable: false
+                        modificationDate: 1675244409
+                        creationDate: 1675243728
+                        preserveAnimation: false

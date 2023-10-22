@@ -29,8 +29,9 @@
                         <h3 class="title">{{ item.getTitle }}</h3>
                         {{ item.getContent|nl2br }}
                         {% if item.getCallToActionLink != null %}
+                            {% set isAncor = item.getCallToActionLink is pimcore_document_link %}
                             <a class="btn-call-to-action btn-anchor"
-                               href="#{{~ stringToLowerFormatter(item.getCallToActionLink.key) ~}}"
+                               href="{{ (isAncor ? '#' : '' ) }}{{~ stringToLowerFormatter(item.getCallToActionLink.key) ~}}"
                                target="_parent">
                                 {% if item.getLinktext != '' %}
                                     {{ item.getLinktext }}

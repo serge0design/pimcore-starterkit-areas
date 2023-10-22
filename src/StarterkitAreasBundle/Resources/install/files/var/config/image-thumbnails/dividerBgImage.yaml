@@ -1,0 +1,27 @@
+pimcore:
+    assets:
+        image:
+            thumbnails:
+                definitions:
+                    dividerBgImage:
+                        items:
+                            -
+                                method: contain
+                                arguments:
+                                    width: 60
+                                    height: 45
+                                    forceResize: false
+                        medias: {  }
+                        name: dividerBgImage
+                        description: ''
+                        group: ''
+                        format: SOURCE
+                        quality: 100
+                        highResolution: 0.0
+                        preserveColor: false
+                        preserveMetaData: false
+                        rasterizeSVG: false
+                        downloadable: false
+                        modificationDate: 1671038275
+                        creationDate: 1671038239
+                        preserveAnimation: false

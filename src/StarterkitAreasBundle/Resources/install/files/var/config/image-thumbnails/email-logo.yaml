@@ -1,0 +1,27 @@
+pimcore:
+    assets:
+        image:
+            thumbnails:
+                definitions:
+                    email-logo:
+                        items:
+                            -
+                                method: contain
+                                arguments:
+                                    width: 225
+                                    height: 60
+                                    forceResize: true
+                        medias: {  }
+                        name: email-logo
+                        description: ''
+                        group: ''
+                        format: JPEG
+                        quality: 100
+                        highResolution: 0.0
+                        preserveColor: false
+                        preserveMetaData: false
+                        rasterizeSVG: false
+                        downloadable: false
+                        modificationDate: 1671718983
+                        creationDate: 1671718798
+                        preserveAnimation: false

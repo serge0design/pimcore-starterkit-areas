@@ -24,7 +24,7 @@
                 {% if item is pimcore_data_object_class("HeroSlide") %}
                     {% if item.getImage is pimcore_asset_image %}
                         <div class="carousel-item {{ (loop.index == 1 ? 'active' : '') }}">
-                            {{ item.getImage.getThumbnail("heroImage").html({
+                            {{ item.getImage.getThumbnail("hero-16x9-cover").html({
                                 'imgAttributes': {
                                     'class': 'img-fluid',
                                     'loading': 'eager'
@@ -37,8 +37,9 @@
                                 <h1 class="title">{{ item.getTitle }}</h1>
                                 {{ item.getContent|nl2br }}
                                 {% if item.getCallToActionLink != null %}
+                                    {% set isAncor = item.getCallToActionLink is pimcore_document_link %}
                                     <a class="btn-call-to-action btn-anchor"
-                                       href="#{{~ stringToLowerFormatter(item.getCallToActionLink.key) ~}}"
+                                       href="{{ (isAncor ? '#' : '' ) }}{{~ stringToLowerFormatter(item.getCallToActionLink.key) ~}}"
                                        target="_parent">
                                         {% if item.getLinktext != '' %}
                                             {{ item.getLinktext }}

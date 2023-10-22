@@ -20,7 +20,7 @@ class TwigAreablock extends AbstractExtension
         $this->areablocks = $areablocks;
     }
 
-    public function getFunctions()
+    public function getFunctions():array
     {
         return [
             new TwigFunction('areablockConfig', [$this, 'areablockConfig'])

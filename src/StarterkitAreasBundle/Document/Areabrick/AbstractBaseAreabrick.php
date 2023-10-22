@@ -106,12 +106,7 @@ abstract class AbstractBaseAreabrick extends PimcoreAbstractAreabrick
 
     public function getIcon(): string
     {
-        $filename = 'bundles/starterkitareas/areas/icons/' . $this->getBrickId() . '.svg';
-        if (file_exists($filename)) {
-            return $filename;
-        } else {
-            return '';
-        }
+        return 'bundles/starterkitareas/areas/icons/' . $this->getBrickId() . '.svg';
     }
 
     /**
