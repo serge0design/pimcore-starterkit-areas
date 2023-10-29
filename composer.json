@@ -34,7 +34,7 @@
         }
     },
     "require": {
-        "pimcore/pimcore": "10.*",
+        "pimcore/pimcore": "^v11.1.0",
         "serge0design/pimcore-custom-editables": "^1.0"
     },
     "require-dev": {}
