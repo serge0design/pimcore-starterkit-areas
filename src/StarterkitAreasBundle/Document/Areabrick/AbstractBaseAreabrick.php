@@ -55,20 +55,19 @@ abstract class AbstractBaseAreabrick extends PimcoreAbstractAreabrick
         $areaBrick = strtolower($matches[1]);
         if ($this->container->hasParameter($areaBrick)) {
             $config = $this->container->getParameter($areaBrick);
+
+            $StoreOptions = [];
             foreach ($config as $array => $store) {
                 if (preg_match('/Store$/', $array)) {
-
                     if ($array === $storeName . 'Store') {
-                        $StoreOptions = [];
                         foreach ($store as $key => $option) {
                             $StoreOptions[] = [$key, $option['name']];
                         }
-                        return $StoreOptions;
                     }
-
                 }
             }
         }
+        return $StoreOptions;
     }
 
     /**
@@ -88,26 +87,6 @@ abstract class AbstractBaseAreabrick extends PimcoreAbstractAreabrick
         return $this->translator->trans($translationKey, [], 'admin');
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getName(): string
-    {
-        return $this->translationString('name');
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getDescription(): string
-    {
-        return $this->translationString('description');
-    }
-
-    public function getIcon(): string
-    {
-        return 'bundles/starterkitareas/areas/icons/' . $this->getBrickId() . '.svg';
-    }
 
     /**
      * @param Info $info
@@ -146,9 +125,8 @@ abstract class AbstractBaseAreabrick extends PimcoreAbstractAreabrick
     /**
      * @inheritDoc
      */
-    public function getTemplateSuffix()
+    public function getTemplateSuffix(): string
     {
         return static::TEMPLATE_SUFFIX_TWIG;
     }
-
 }
