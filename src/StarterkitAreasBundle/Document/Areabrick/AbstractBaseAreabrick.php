@@ -55,19 +55,20 @@ abstract class AbstractBaseAreabrick extends PimcoreAbstractAreabrick
         $areaBrick = strtolower($matches[1]);
         if ($this->container->hasParameter($areaBrick)) {
             $config = $this->container->getParameter($areaBrick);
-
-            $StoreOptions = [];
             foreach ($config as $array => $store) {
                 if (preg_match('/Store$/', $array)) {
+
                     if ($array === $storeName . 'Store') {
+                        $StoreOptions = [];
                         foreach ($store as $key => $option) {
                             $StoreOptions[] = [$key, $option['name']];
                         }
+                        return $StoreOptions;
                     }
+
                 }
             }
         }
-        return $StoreOptions;
     }
 
     /**
@@ -87,13 +88,33 @@ abstract class AbstractBaseAreabrick extends PimcoreAbstractAreabrick
         return $this->translator->trans($translationKey, [], 'admin');
     }
 
+    /**
+     * {@inheritdoc}
+     */
+    public function getName(): string
+    {
+        return $this->translationString('name');
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getDescription(): string
+    {
+        return $this->translationString('description');
+    }
+
+    public function getIcon(): string
+    {
+        return 'bundles/starterkitareas/areas/icons/' . $this->getBrickId() . '.svg';
+    }
 
     /**
      * @param Info $info
      *
      * @return string|null
      */
-    protected function getOpenTagCssClass(Info $info)
+    protected function getOpenTagCssClass(Info $info): string|null
     {
         return null;
     }
@@ -101,7 +122,7 @@ abstract class AbstractBaseAreabrick extends PimcoreAbstractAreabrick
     /**
      * @return string
      */
-    public function getHtmlTagOpen(Info $info)
+    public function getHtmlTagOpen(Info $info): string
     {
         return '<div class="wrapper--' . $this->getBrickId() . '">';
     }
@@ -109,7 +130,7 @@ abstract class AbstractBaseAreabrick extends PimcoreAbstractAreabrick
     /**
      * @return string
      */
-    public function getHtmlTagClose(Info $info)
+    public function getHtmlTagClose(Info $info): string
     {
         return '</div>';
     }
@@ -117,7 +138,7 @@ abstract class AbstractBaseAreabrick extends PimcoreAbstractAreabrick
     /**
      * @inheritDoc
      */
-    public function getTemplateLocation()
+    public function getTemplateLocation(): string
     {
         return static::TEMPLATE_LOCATION_BUNDLE;
     }
@@ -129,4 +150,5 @@ abstract class AbstractBaseAreabrick extends PimcoreAbstractAreabrick
     {
         return static::TEMPLATE_SUFFIX_TWIG;
     }
+
 }

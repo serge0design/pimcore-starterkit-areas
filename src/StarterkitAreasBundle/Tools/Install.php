@@ -4,7 +4,7 @@ namespace StarterkitAreasBundle\Tools;
 
 use App\Document\Areabrick\AbstractAreabrick;
 use Pimcore\Extension\Bundle\Installer\SettingsStoreAwareInstaller;
-use Pimcore\Bundle\AdminBundle\Security\User\TokenStorageUserResolver;
+use Pimcore\Security\User\TokenStorageUserResolver;
 use Pimcore\Extension\Bundle\Installer\Exception\InstallationException;
 use Pimcore\Model\DataObject\Folder;
 use Pimcore\Model\Document\DocType;
